@@ -9,14 +9,16 @@
   <script type="text/babel">
     // 📜 JSX In Depth https://reactjs.org/docs/jsx-in-depth.html
     // 📜 What is JSX https://kentcdodds.com/blog/what-is-jsx
-    function message({children}) {
+    function message({ children }) {
       return <div className="message">{children}</div>
     }
 
+    const helloElement = React.createElement(message, { children: 'Hello World'} );
+    const goodbyeElement = React.createElement(message, { children: 'Goodby World' });
     const element = (
       <div className="container">
-        {message({children: 'Hello World'})}
-        {message({children: 'Goodbye World'})}
+        {helloElement}
+        {goodbyeElement}
       </div>
     )
 
