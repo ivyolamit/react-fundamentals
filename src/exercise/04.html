@@ -6,6 +6,7 @@
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
     // 📜 JSX In Depth https://reactjs.org/docs/jsx-in-depth.html
     // 📜 What is JSX https://kentcdodds.com/blog/what-is-jsx
@@ -17,17 +18,9 @@
       )
     }
 
-    const PropTypes = {
-      string(props, propName, componentName) {
-        const type = typeof props[propName]
-        if (type !== 'string') {
-          return new Error(`The component ${componentName} needs the ${propName} to be type "string" but was passed a ${type}.`)
-        }
-      }
-    }
     Message.propTypes = {
-      greeting: PropTypes.string,
-      subject: PropTypes.string,
+      greeting: PropTypes.string.isRequired,
+      subject: PropTypes.string.isRequired,
     }
     const element = (
       <div className="container">
