@@ -9,16 +9,30 @@
   <script type="text/babel">
     // 📜 JSX In Depth https://reactjs.org/docs/jsx-in-depth.html
     // 📜 What is JSX https://kentcdodds.com/blog/what-is-jsx
-    function Message({ children }) {
-      return <div className="message">{children}</div>
+    function Message({subject, greeting}) {
+      return (
+        <div className="message">
+          {greeting}, {subject}
+        </div>
+      )
     }
 
-    const hello = "Hello World";
-    const goodbye = "Goodbye World";
+    const PropTypes = {
+      string(props, propName, componentName) {
+        const type = typeof props[propName]
+        if (type !== 'string') {
+          return new Error(`The component ${componentName} needs the ${propName} to be type "string" but was passed a ${type}.`)
+        }
+      }
+    }
+    Message.propTypes = {
+      greeting: PropTypes.string,
+      subject: PropTypes.string,
+    }
     const element = (
       <div className="container">
-        <Message>{hello}</Message>
-        <Message>{goodbye}</Message>
+        <Message greeting="Hello" subject="World" />
+        <Message greeting="Goodbye" subject="World" />
       </div>
     )
 
