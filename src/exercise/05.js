@@ -17,6 +17,7 @@ function Box({className = "", style, size, color = "", ...props}) {
 const smallBox = <Box size="small" color="lightblue">small lightblue box</Box>;
 const mediumBox = <Box size="medium" color="pink">medium pink box</Box>;
 const largeBox = <Box size="large" color="orange">large orange box</Box>;
+const sizelessBox = <Box>sizeless box</Box>;
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       {smallBox}
       {mediumBox}
       {largeBox}
+      {sizelessBox}
     </div>
   )
 }
